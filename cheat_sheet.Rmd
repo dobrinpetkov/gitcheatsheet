@@ -1,0 +1,14 @@
+---
+title: "Git Cheat Sheet"
+outhor: "Dobrin Petkov"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+This is a very brief list of the most used git commands with short explanations and simple examples.
+
+##
