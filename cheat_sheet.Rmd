@@ -8,18 +8,18 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Introduction
+# Introduction
 
 This is a very brief list of the most used git commands with short explanations and simple examples.
 
-## Getting started
+# Getting started
 
 After installing Git, it is good to customize your Git environment. The command to do it is:
 ```git
     git config
 ```
 
-### Your identity
+## Your identity
 
 The first thing you should do is to set your user name and email address. This is used by Git in every commit:
 
@@ -28,7 +28,7 @@ The first thing you should do is to set your user name and email address. This i
     git config --global user.email "dobrinpetkov@gmail.com"
 ```
 
-### Your editor
+## Your editor
 
 Next you may want to set up your text editor. It is used whenever Git needs you to type in a message. If not set up, the default editor will be used:
 
@@ -37,7 +37,7 @@ Next you may want to set up your text editor. It is used whenever Git needs you 
     git config --global core.editor emacs
 ```
 
-### Your Settings
+## Your Settings
 
 To check your settings just type:
 
@@ -45,7 +45,7 @@ To check your settings just type:
     git config --list
 ```
 
-### Getting Help
+## Getting Help
 
 From the shell:
 ```git 
@@ -61,6 +61,87 @@ For example, if you want help on config:
     git config help
     man git-config
 ```
+
+# Typical Workflow - Single Branch
+
+## Getting a Git Repository
+
+There are two ways you can get a Git repository - initialize yourself or clone existing one.
+
+### Initializen a Repository in an Existing Directory
+
+To start tracking existing folder, navigate to it and then:
+
+```git
+    git init
+```
+This creates a new subdirectory called **.git** which contains all necessary repository files.
+
+### Cloing an Existing Repository
+
+```git
+    git clone [url]
+```
+For example:
+```git
+    git clone https://github.com/dobrinpetkov/git_cheat_sheet
+```
+This creates directory `git_cheat_sheet` in your current folder, **.git** folder inside it, pulls down all the data for that repository, and checks out a working copy of the latest version. If you want to use custom folder name and not the default one, then:
+```git
+    git clone https://github.com/dobrinpetkov/git_cheat_sheet my_cheat_sheet
+```
+
+## Recording changes
+
+Each file in your repository can be in one of the four states:
+
+1. untracked
+1. tracked
+    - unmodified
+    - modified
+    - staged
+
+A typical workflow is as follos:
+
+- edit a file    (unmodified -> modified)
+- stage the file (modified   -> staged)
+- commit         (staged     -> modified)
+- then the cycle repeats
+
+### Checking the status of your files
+
+```{r, engine = "bash", eval = T}
+    git status
+```
+When you are comfortable enough with this command, you can use the short option:
+```{r, engine = "bash", eval = T}
+    git status -s
+```
+
+### Tracking New Files
+
+```
+    git add README
+```
+
+The `git add` takes a path name as input or a directory; **if it is a directory, it adds all the files in that directory recursively**.
+
+### Ignoring files
+
+If you want to ignore certain files, so they do not appear even in untracked ones, add them to the file `.gitignore`. You can use glob patterns. Those are simplified regular expressions:
+
+- asterisk `*` matches zero or more characters
+- `[abc]` matches any character inside the brackets (in this case a, b or c)
+- a question mark `?` matches a single character
+- `[0-9]` matches anything between 0 and 9
+- `**` can be used to match nested directories. For example, **a/**/z** would match **a/z**, **a/b/z**, **a/b/c/z**, and s.o.
+
+
+    
+
+
+
+
 
 
 
