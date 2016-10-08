@@ -1,6 +1,6 @@
 ---
 title: "Git Cheat Sheet"
-outhor: "Dobrin Petkov"
+author: "Dobrin Petkov"
 output: html_document
 ---
 
@@ -9,6 +9,58 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Introduction
+
 This is a very brief list of the most used git commands with short explanations and simple examples.
 
-##
+## Getting started
+
+After installing Git, it is good to customize your Git environment. The command to do it is:
+```git
+    git config
+```
+
+### Your identity
+
+The first thing you should do is to set your user name and email address. This is used by Git in every commit:
+
+```git
+    git config --global user.name "Dobrin Petkov"
+    git config --global user.email "dobrinpetkov@gmail.com"
+```
+
+### Your editor
+
+Next you may want to set up your text editor. It is used whenever Git needs you to type in a message. If not set up, the default editor will be used:
+
+
+```git
+    git config --global core.editor emacs
+```
+
+### Your Settings
+
+To check your settings just type:
+
+```git
+    git config --list
+```
+
+### Getting Help
+
+From the shell:
+```git 
+    git help <verb>
+    git <verb> help
+    man git-<verb>
+```
+
+For example, if you want help on config:
+
+```git 
+    git help config
+    git config help
+    man git-config
+```
+
+
+
