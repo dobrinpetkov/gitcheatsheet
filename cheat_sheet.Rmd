@@ -177,7 +177,53 @@ To remove file from staging are, but keep it in the working tree (keep it on the
 
 ## Viewing the Commit History
 
+To see all commits
+```{r, engine='bash'}
+    git log
+```
+`git log` has many option. The most useful follow. 
+
+- `p` shows the differences introduced in each commit
+- `-2` limits the output to the last 2 commits only
+
+```
+    git log -p -2
+```
+If you want some statics on what happened:
+```
+    git log --stat
+```
 
 
+### Limiting Log Output
 
+The number of commits
+```
+    git log -<n>
+```
+Time limiting
+```
+    git log --since=2.weeks
+    git log --until=2016-10-08
+```
 
+## Undoing Things
+
+If you have forgotten to add file to commit or you want to change the commit message:
+```
+    git commit --amend
+```
+
+### Unstaging a Staged File
+
+```
+    git add file_1 file_2
+    git reset HEAD file_1
+```
+will unstage `file_1` and only `file_2` will remain in the staging area.
+
+### Unmodifying a Modified File
+
+```
+    git checkout -- file_to_unmodify
+```
