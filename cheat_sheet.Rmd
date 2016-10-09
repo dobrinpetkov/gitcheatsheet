@@ -101,11 +101,11 @@ Each file in your repository can be in one of the four states:
     - modified
     - staged
 
-A typical workflow is as follos:
+A typical workflow is as follows:
 
 - edit a file    (unmodified -> modified)
 - stage the file (modified   -> staged)
-- commit         (staged     -> modified)
+- commit         (staged     -> unmodified)
 - then the cycle repeats
 
 ### Checking the status of your files
@@ -136,10 +136,46 @@ If you want to ignore certain files, so they do not appear even in untracked one
 - `[0-9]` matches anything between 0 and 9
 - `**` can be used to match nested directories. For example, **a/**/z** would match **a/z**, **a/b/z**, **a/b/c/z**, and s.o.
 
+### Viewing Staged and Unstaged Changes
 
+Let say you have changed a file, staged it, and then modified it again. 
+
+```
+    git diff
+```
     
+will show what is the difference between your modified version and your staged version. That is the difference between your working area and your staging area. If you want to see, what changes will be committed compared to your previous commit, run:
+
+```
+    git diff --staged (--cached) 
+```
+`cached` and `staged` are synonyms. Note that if you have only modified a file, and then run `git diff`, it will compare the versions in your working area and your previous commit.
 
 
+### Committing Your Changes
+
+```
+    git commit
+```
+This will launch your editor of choice. There you can edit the commit message. To do it inline
+```
+    git commit -m "Your message goes here"
+```
+If you want, you might skip the staging are. 
+```
+    git commit -a 
+```
+Git will automatically stage every file, that has been tracked.
+
+### Removing Files
+
+To remove file from staging are, but keep it in the working tree (keep it on the hard, but do not track it with Git). This is useful if you have added files to the staging area which you did not want to (for example, forgetting to add something to `.gitingnore`).
+```
+    git rm --cached 
+```
+
+
+## Viewing the Commit History
 
 
 
